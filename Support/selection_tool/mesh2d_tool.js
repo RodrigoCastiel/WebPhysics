@@ -11,7 +11,7 @@ function Mesh2dTool(parent) {
 		this.active = !this.active;
 
 		if (this.active) {
-			this.parent.SetMessage("ararararara");
+			this.parent.SetMessage("Sorry! Under development!");
 		}
 	}
 
