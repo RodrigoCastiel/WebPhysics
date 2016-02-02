@@ -54,7 +54,7 @@ function PresentationTool(parent) {
 			ctx.shadowColor = "rgb(255, 0, 0)";
 
 			ctx.font = "bold 40px Courier New";
-			ctx.fillText("Web Physics Playground", canvas.width/2, canvas.height/8 );
+			ctx.fillText("Webphysics Playground", canvas.width/2, canvas.height/8 );
 			ctx.font = "bold 20px Courier New";
 			ctx.fillText("Click to start!", canvas.width/2, canvas.height/2);
 
@@ -62,7 +62,7 @@ function PresentationTool(parent) {
 			ctx.fillStyle = "rgb(" + this.color + "," + this.color + "," + this.color + ")";
 			ctx.font = "bold 40px Courier New";
 			ctx.shadowColor = "rgb(" + this.color + ", 0, 0)";
-			ctx.fillText("Web Physics Playground", canvas.width/2, canvas.height/8 - dy);	
+			ctx.fillText("Webphysics Playground", canvas.width/2, canvas.height/8 - dy);	
 		}
 
 
