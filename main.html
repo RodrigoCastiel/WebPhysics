@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://cin.ufpe.br/~rcrs2/PhysicsSimulator/simulation.html -->
+<html> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta charset="utf-8">
+	<title>Simulation</title>
+	<style>
+		*{
+			cursor: crosshair;
+		}
+		body {
+			overflow: 		hidden;
+			margin: 		0;
+			padding: 		0;
+			width: 			100%;
+			height:			100%;
+		}
+		canvas {
+			position: 			absolute;
+			top: 				0;
+			background-color:	rgb(5, 5, 5);
+			display:			block;
+			width: 				100%;
+			height:				100%;
+      	}
+	</style>
+</head>
+<body oncontextmen="return false">
+	<canvas id="canvas" width="1280" height="661"> </canvas>	
+	<!-- <audio autoplay="">
+		<source src="./audio/music.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio> -->
+
+	<script type="text/javascript" src="./Support/mesh/mesh_1d.js"> </script>
+	<script type="text/javascript" src="./Support/mesh/mesh_2d.js"> </script>
+	<script type="text/javascript" src="./Support/connector/rope.js"> </script>
+	<script type="text/javascript" src="./Support/connector/damper.js"> </script>
+	<script type="text/javascript" src="./Support/connector/spring.js"> </script>
+
+	<script type="text/javascript" src="./Support/events/mouse.js"> </script>
+	<script type="text/javascript" src="./Support/events/events.js"> </script>
+
+	<script type="text/javascript" src="./Support/system/system.js"> </script>
+	<script type="text/javascript" src="./Support/particle/particle.js"> </script>
+	
+	<script type="text/javascript" src="./Support/selection_tool/mesh1d_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/mesh2d_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/selection_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/connector_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/edit_mode_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/presentation_tool.js"> </script>
+	<script type="text/javascript" src="./Support/selection_tool/add_particle_tool.js"> </script>
+
+	<script type="text/javascript" src="./Support/others/math_aux.js"> </script>
+	<script type="text/javascript" src="./Support/others/force_field.js"> </script>
+	<script type="text/javascript" src="./Support/others/attach_point.js"> </script>
+
+	<script>	
+		var FPS = 60;
+		var paused = false;
+		var system = new System();
+		var selection_tool = new SelectionTool();
+		var bolado_mode = false;
+		var g = {on: false};
+
+		window.requestAnimFrame = (function(callback) {
+			return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+			function(callback) {
+				window.setTimeout(callback, 1000 / FPS);
+			};
+		})();
+
+		UpdateCanvas();
+		//OpenAnimation();
+		
+		function UpdateCanvas() {
+			var canvas = document.getElementById('canvas');
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight; 	
+		}
+		
+		function Draw(canvas) {
+			ctx = canvas.getContext('2d');
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle   = 'rgb(15, 5, 25)'; 
+			ctx.fillRect  (0,   0, canvas.width, canvas.height); 
+			system.Draw(canvas);
+			selection_tool.Draw(canvas);
+
+			if (paused) {
+				ctx.beginPath();
+				ctx.fillStyle = "white";
+				ctx.font = "bold 30px Courier New";
+				ctx.shadowBlur = 10;
+				ctx.shadowColor = '#FF0000';
+				ctx.fillText("PAUSED", canvas.width/2-60, canvas.height/15);
+				ctx.closePath();
+			}
+		}
+	
+		function Update(canvas) {	
+			if (!paused) {
+				system.Update(canvas);
+				UpdateMouseSpeed();
+			} 
+		}
+	
+		function Simulate() {
+			canvas = document.getElementById('canvas');
+			UpdateCanvas();
+			
+			Update(canvas);
+			Draw(canvas);
+			MouseInteraction();
+			
+			// Request new frame.
+			requestAnimFrame(function() {
+			  Simulate();
+			});
+		}
+		
+		Simulate();
+		
+		setTimeout(function() {
+		var startTime = (new Date()).getTime();
+			Simulate(startTime); 
+		  }, 1);
+		
+	</script>
+
+
+</body></html>
