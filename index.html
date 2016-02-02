@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Webphysics by RodrigoCastiel</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/RodrigoCastiel/WebPhysics">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/RodrigoCastiel/WebPhysics/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/RodrigoCastiel/WebPhysics/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Webphysics</h1>
+          <p>Physics playground - just for fun! </p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/RodrigoCastiel">RodrigoCastiel</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p><em>Webphysics</em> is what I've done during a winter week in Minnesota. It features a basic 2d-physics simulation for particles, springs, dampers, elastic ropes and meshes. There are 6 main modes (5 of which were implemented) that allow to add particles, connectors, elastic ropes and meshes. The gravity is computed by a summation of gravitational fields (code-specified by functions) and also can be enabled/disabled. It is possible to connect particles to springs, ropes, dampers and manually create complex systems and attach them to the wall. Moreover, in edit mode we can interact with objects using mouse click and drag, which changes their position and velocity. Example: try to generate waves in strings! To make edition easy, simulation pause is available.</p>
+
+<h2>
+<a id="modes-description" class="anchor" href="#modes-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modes description</h2>
+
+<p>Modes are selectable by numerical keys from 1 to 6 on the keyboard.</p>
+
+<h3>
+<a id="1-edit-mode" class="anchor" href="#1-edit-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Edit Mode</h3>
+
+<p>Info:  Uses the mouse input to change position and velocity for particles, elastic ropes and meshes.
+Guide: left-click on an object, drag holding the button and release.
+Future features: change object attributes (mass, density, color, elasticity coefficient and so on) and delete it.</p>
+
+<h3>
+<a id="2-area-edit" class="anchor" href="#2-area-edit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Area Edit</h3>
+
+<p>Info:  not implemented yet.
+Guide: not implemented yet.
+Future features: select all objects within a rectangle area and set all their attributes simultaneously or even delete them.</p>
+
+<h3>
+<a id="3-add-particle" class="anchor" href="#3-add-particle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Add Particle</h3>
+
+<p>Info: Creates a particle to the physical system with origin coordinates at the mouse left-click position and a velocity proportional to mouse displacement.
+Guide: left-click anywhere, drag holding the button to specify initial speed orientation and release.</p>
+
+<h3>
+<a id="4-add-connector" class="anchor" href="#4-add-connector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Add Connector</h3>
+
+<p>Info: Adds connector from a particle to either a fixed point or another particle. By pressing C on keyboard the user changes the type of connector: rope, spring or damper (each one with a different color and shape).
+Guide: TODO(RodrigoCastiel)</p>
+
+<h3>
+<a id="5-mesh-1d" class="anchor" href="#5-mesh-1d" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Mesh 1d</h3>
+
+<p>Info: Adds a string made up by particles and elastic ideal ropes. Left button creates a string with free ends and right button creates a string with the two ends attached to the background.
+Guide: TODO(RodrigoCastiel)</p>
+
+<h3>
+<a id="6-mesh-2d" class="anchor" href="#6-mesh-2d" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Mesh 2d</h3>
+
+<p>Info: Adds a 2d-mesh structure made up by particles, springs and dampers. It is still under development.
+Guide: TODO(RodrigoCastiel)</p>
+
+<h2>
+<a id="extra-features" class="anchor" href="#extra-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extra features</h2>
+
+<ul>
+<li>Press space bar for toggle pause/run</li>
+<li>Press G to enable/disable gravity</li>
+<li>Leave the mouse cursor on a particle and press +/- to change the its radius</li>
+<li>Gravity field lines are drawn</li>
+<li>A menu helps the user to play with the simulator</li>
+</ul>
+
+<p>All particles' attributes are settable through the source code. In the future, edit mode will be in charge of it.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
